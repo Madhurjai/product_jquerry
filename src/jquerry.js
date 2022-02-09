@@ -62,7 +62,7 @@ $(document).ready(function(){
     var html = '<tr><td> Pro_id </td><td> Pro_name </td><td> Pro_price </td><td> Pro_quantity </td></tr>';
 
     for (var i=0; i < array.length; i++){
-      html += '<tr>\
+      html += '<tr id = "delrow" data-row = '+array[i].pro_id+'>\
       <td>'+array[i].pro_id+'</td>\
       <td>'+array[i].pro_name+'</td>\
       <td>'+array[i].pro_price+'</td>\
@@ -122,24 +122,13 @@ $(document).ready(function(){
     flag= 0;
     for(var i =0; i<array.length ;i++){
         if(id == array[i].pro_id){
-          // array.filter((item) => item.pro_id != array[i].pro_id);
-      //     flag = 1
-      //     array.pop()}
-      //   else{
-      //     flag = 0 ;
-      //   }
-      //   if(flag == 0){
-      //       append(array[i]);
-      // }
-
-           
-        
-            
-        }
-    
-    // console.log(array);
-       
- ;}}
+          var ind = array.indexOf(array[i]);
+          console.log(ind);
+          array.splice(ind,1);
+       }
+    }
+    append(array);
+       }
 });
 
 
